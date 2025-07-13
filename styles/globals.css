@@ -1,8 +1,13 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --borderWidth-thin: 0.0625rem;
+  --borderRadius-medium: 0.375rem;
+  --button-default-borderColor-rest: #b7bdc8;
+  --base-size: 2rem;
+  --base-icon-black-themed-color: #b7bdc8;
 }
 
 @theme inline {

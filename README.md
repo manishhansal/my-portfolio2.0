@@ -1,40 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# My Portfolio 2.0
+
+A personal portfolio web app built with [Next.js](https://nextjs.org), [React](https://react.dev), [Tailwind CSS](https://tailwindcss.com), and [TypeScript](https://www.typescriptlang.org/).
+
+## Features
+
+- GitHub-inspired UI with custom navbar and sidebar
+- Light/Dark theme toggle (persists user preference)
+- Responsive design
+- Framer Motion for smooth animations
+- Modular component structure
+
+## Project Structure
+
+```
+context/            # Theme context provider and hook
+pages/              # Next.js pages and components
+  components/       # Reusable UI components (Navbar, Sidebar, etc.)
+public/             # Static assets (profile picture, etc.)
+styles/             # Global CSS (Tailwind)
+utils/              # Constants and utility functions
+```
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- `npm run dev` – Start development server
+- `npm run build` – Build for production
+- `npm run start` – Start production server
+- `npm run lint` – Run ESLint
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js
+- React 19
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Lucide React Icons
+- ESLint & Prettier
 
-## Learn More
+## Customization
 
-To learn more about Next.js, take a look at the following resources:
+- Update your profile picture in [`public/pcboi2.png`](public/pcboi2.png)
+- Edit constants in [`utils/constants.ts`](utils/constants.ts)
+- Modify theme logic in [`context/ThemeContext.tsx`](context/ThemeContext.tsx)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is private and for personal use.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+Inspired

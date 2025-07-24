@@ -1,106 +1,197 @@
 'use client';
 
+import { useTheme } from '@/context/ThemeContext';
+import Image from 'next/image';
 import {
-  Home,
+  User,
+  Book,
   Github,
-  FileText,
   LayoutDashboard,
-  Folder,
-  MessageSquare,
-  Code2,
-  Rocket,
+  Star,
+  Code,
+  Building,
+  Globe,
+  Heart,
+  Upload,
+  Beaker,
+  Wrench,
+  Settings,
+  ExternalLink,
   BookOpen,
-  Search,
+  Users,
+  MessageSquare,
+  LogOut,
+  Smile,
+  ArrowRightLeft,
   X,
 } from 'lucide-react';
+import React from 'react';
 
 interface Props {
   open: boolean;
   setOpen: (value: boolean) => void;
+  position: 'left' | 'right';
 }
 
-const Sidebar = ({ open, setOpen }: Props) => {
-  const sidebarStyle: React.CSSProperties = {
-    position: 'fixed',
-    top: 0,
-    left: open ? 0 : '-260px',
-    width: '260px',
-    height: '100vh',
-    backgroundColor: '#010409',
-    color: '#fff',
-    overflowY: 'auto',
-    transition: 'left 0.3s ease',
-    zIndex: 1000,
-  };
+const Sidebar = ({ open, setOpen, position }: Props) => {
+  const { theme } = useTheme();
+  const alignmentClass = position === 'left' ? 'left-0' : 'right-0';
+  const transformClass =
+    position === 'left'
+      ? open
+        ? 'translate-x-0'
+        : '-translate-x-full'
+      : open
+        ? 'translate-x-0'
+        : 'translate-x-full';
+
+  const borderAndRoundingClasses =
+    position === 'left'
+      ? `border-r rounded-r-lg ${theme === 'dark' ? 'border-gray-800' : 'border-gray-200'}`
+      : `border-l rounded-l-lg ${theme === 'dark' ? 'border-gray-800' : 'border-gray-200'}`;
 
   return (
     <>
-      {/* Sidebar */}
-      <aside style={sidebarStyle}>
-        <div className="flex justify-between items-center p-4">
-          <Github className="w-6 h-6" />
-          <button onClick={() => setOpen(false)} className="text-white text-2xl cursor-pointer">
-            <X className="w-4 h-4" />
-          </button>
-        </div>
-
-        <nav className="px-4 pb-4 border-b border-gray-800">
-          <SidebarItem icon={<Home className="w-4 h-4" />} label="Home" />
-          <SidebarItem icon={<FileText className="w-4 h-4" />} label="Issues" />
-          <SidebarItem icon={<LayoutDashboard className="w-4 h-4" />} label="Pull requests" />
-          <SidebarItem icon={<Folder className="w-4 h-4" />} label="Projects" />
-          <SidebarItem icon={<MessageSquare className="w-4 h-4" />} label="Discussions" />
-          <SidebarItem icon={<Code2 className="w-4 h-4" />} label="Codespaces" />
-          <SidebarItem icon={<Rocket className="w-4 h-4" />} label="Copilot" />
-          <SidebarItem icon={<BookOpen className="w-4 h-4" />} label="Explore" />
-          <SidebarItem icon={<BookOpen className="w-4 h-4" />} label="Marketplace" />
-        </nav>
-
-        <div className="px-4 pt-4">
-          <div className="flex items-center justify-between text-sm text-gray-400 mb-2">
-            <span>Repositories</span>
-            <Search className="w-4 h-4" />
+      <div
+        className={`fixed top-0 h-full w-80 p-4 transform transition-transform duration-300 ease-in-out z-50 ${alignmentClass} ${transformClass} ${
+          theme === 'dark' ? 'bg-[#0d1117] text-white' : 'bg-white text-black'
+        } ${borderAndRoundingClasses}`}
+      >
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center">
+            <Image
+              src="/pcboi2.png"
+              alt="User Avatar"
+              width={40}
+              height={40}
+              className="rounded-full"
+            />
+            <div className="ml-3">
+              <p className="font-bold">manishhansal</p>
+              <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+                Manish Kumar
+              </p>
+            </div>
           </div>
-          <ul className="space-y-1 text-sm">
-            <li className="text-gray-300 hover:text-white">manishhansal/my-portfolio2.0</li>
-            <li className="text-gray-300 hover:text-white">manishhansal/Speech-Recognition</li>
-            <li className="text-gray-300 hover:text-white">manishhansal/cal.com</li>
-            <li className="text-gray-300 hover:text-white">Show more</li>
-          </ul>
+          <div className="flex items-center space-x-2">
+            <button
+              className={`${
+                theme === 'dark'
+                  ? 'text-gray-400 hover:text-white'
+                  : 'text-gray-600 hover:text-black'
+              }`}
+            >
+              <ArrowRightLeft size={18} />
+            </button>
+            <button
+              onClick={() => setOpen(false)}
+              className={`${
+                theme === 'dark'
+                  ? 'text-gray-400 hover:text-white'
+                  : 'text-gray-600 hover:text-black'
+              }`}
+            >
+              <X size={20} />
+            </button>
+          </div>
         </div>
 
-        <div className="px-4 py-6 text-xs text-gray-500 border-t border-gray-800 mt-6">
-          <p>&copy; 2025 GitHub, Inc.</p>
-          <a href="#" className="block hover:underline">
-            Privacy
-          </a>
-          <a href="#" className="block hover:underline">
-            Terms
-          </a>
-        </div>
-      </aside>
-
-      {/* Overlay */}
-      {open && (
         <div
-          onClick={() => setOpen(false)}
-          className="fixed inset-0 bg-black opacity-40 z-[900] md:hidden"
-        />
+          className={`flex items-center p-2 mb-4 rounded-md cursor-pointer ${
+            theme === 'dark' ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100'
+          }`}
+        >
+          <Smile size={20} className="mr-3" />
+          <span>Set status</span>
+        </div>
+
+        <hr className={`${theme === 'dark' ? 'border-gray-700' : 'border-gray-200'} my-2`} />
+
+        <nav className="flex-1 overflow-y-auto">
+          <SidebarMenuItem icon={<User size={18} />} label="Your profile" theme={theme} />
+          <SidebarMenuItem icon={<Book size={18} />} label="Your repositories" theme={theme} />
+          <SidebarMenuItem icon={<Github size={18} />} label="Your Copilot" theme={theme} />
+          <SidebarMenuItem
+            icon={<LayoutDashboard size={18} />}
+            label="Your projects"
+            theme={theme}
+          />
+          <SidebarMenuItem icon={<Star size={18} />} label="Your stars" theme={theme} />
+          <SidebarMenuItem icon={<Code size={18} />} label="Your gists" theme={theme} />
+          <SidebarMenuItem icon={<Building size={18} />} label="Your organizations" theme={theme} />
+          <SidebarMenuItem icon={<Globe size={18} />} label="Your enterprises" theme={theme} />
+          <SidebarMenuItem icon={<Heart size={18} />} label="Your sponsors" theme={theme} />
+
+          <hr className={`${theme === 'dark' ? 'border-gray-700' : 'border-gray-200'} my-2`} />
+
+          <SidebarMenuItem
+            icon={<Upload size={18} />}
+            label="Try Enterprise"
+            badge="Free"
+            theme={theme}
+          />
+          <SidebarMenuItem icon={<Beaker size={18} />} label="Feature preview" theme={theme} />
+          <SidebarMenuItem
+            icon={<Wrench size={18} />}
+            label="GitHub MCP Server"
+            badge="Preview"
+            theme={theme}
+          />
+          <SidebarMenuItem icon={<Settings size={18} />} label="Settings" theme={theme} />
+
+          <hr className={`${theme === 'dark' ? 'border-gray-700' : 'border-gray-200'} my-2`} />
+
+          <SidebarMenuItem icon={<ExternalLink size={18} />} label="GitHub Website" theme={theme} />
+          <SidebarMenuItem icon={<BookOpen size={18} />} label="GitHub Docs" theme={theme} />
+          <SidebarMenuItem icon={<Users size={18} />} label="GitHub Support" theme={theme} />
+          <SidebarMenuItem
+            icon={<MessageSquare size={18} />}
+            label="GitHub Community"
+            theme={theme}
+          />
+
+          <hr className={`${theme === 'dark' ? 'border-gray-700' : 'border-gray-200'} my-2`} />
+
+          <SidebarMenuItem icon={<LogOut size={18} />} label="Sign out" theme={theme} />
+        </nav>
+      </div>
+      {open && (
+        <div onClick={() => setOpen(false)} className="fixed inset-0 bg-black opacity-40 z-40" />
       )}
     </>
   );
 };
 
-function SidebarItem({ icon, label }: { icon: React.ReactNode; label: string }) {
+interface SidebarMenuItemProps {
+  icon: React.ReactNode;
+  label: string;
+  badge?: string;
+  theme: 'light' | 'dark';
+}
+
+const SidebarMenuItem = ({ icon, label, badge, theme }: SidebarMenuItemProps) => {
   return (
     <a
       href="#"
-      className="flex items-center space-x-3 px-2 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded"
+      className={`flex items-center justify-between p-2 rounded-md ${
+        theme === 'dark' ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100'
+      }`}
     >
-      <span>{icon}</span>
-      <span className="text-sm">{label}</span>
+      <div className="flex items-center">
+        <div className="w-6">{icon}</div>
+        <span className="ml-2 text-sm">{label}</span>
+      </div>
+      {badge && (
+        <span
+          className={`px-2 py-0.5 text-xs rounded-full ${
+            badge === 'Free' ? 'bg-blue-600 text-white' : 'bg-yellow-400 text-black'
+          }`}
+        >
+          {badge}
+        </span>
+      )}
     </a>
   );
-}
+};
 
 export default Sidebar;

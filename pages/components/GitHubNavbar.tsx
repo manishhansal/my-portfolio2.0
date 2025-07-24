@@ -4,11 +4,13 @@ import ThemeToggleButton from './ThemeToggleButton';
 import { useTheme } from '@/context/ThemeContext';
 
 interface Props {
-  open: boolean;
-  setOpen: (value: boolean) => void;
+  leftOpen: boolean;
+  setLeftOpen: (value: boolean) => void;
+  rightOpen: boolean;
+  setRightOpen: (value: boolean) => void;
 }
 
-const GitHubNavbar = ({ open, setOpen }: Props) => {
+const GitHubNavbar = ({ leftOpen, setLeftOpen, rightOpen, setRightOpen }: Props) => {
   const { theme } = useTheme();
   return (
     <nav
@@ -29,7 +31,7 @@ const GitHubNavbar = ({ open, setOpen }: Props) => {
             height: `var(--base-size, 32px)`,
             backgroundColor: theme === 'dark' ? '#161b22' : '#fff',
           }}
-          onClick={() => setOpen(!open)}
+          onClick={() => setLeftOpen(!leftOpen)}
         >
           <Menu className="w-5 h-5" style={{ color: `var(--base-icon-black-themed-color)` }} />
         </button>
@@ -116,6 +118,7 @@ const GitHubNavbar = ({ open, setOpen }: Props) => {
           style={{
             borderColor: theme === 'dark' ? '#3b82f6' : '#2563eb',
           }}
+          onClick={() => setRightOpen(!rightOpen)}
         />
       </div>
     </nav>

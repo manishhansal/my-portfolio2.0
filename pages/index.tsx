@@ -1,6 +1,7 @@
 import { useTheme } from '@/context/ThemeContext';
 import Image from 'next/image';
-import { MapPin, Mail, Link as LinkIcon, Twitter, Linkedin, Pencil, Users } from 'lucide-react';
+import { Linkedin, Pencil, Twitter } from 'lucide-react';
+import ProfilePageLayout from './components/ProfilePageLayout';
 
 const WhatsAppIcon = () => (
   <svg
@@ -22,156 +23,80 @@ export default function OverviewPage() {
   const cardBorder = theme === 'dark' ? 'border-gray-800' : 'border-gray-200';
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      {/* Left Column */}
-      <div className="lg:col-span-1">
-        <div className="flex flex-col">
-          <Image
-            src="/pcboi2.png"
-            alt="Manish Kumar"
-            width={280}
-            height={280}
-            className="rounded-full border-2 border-gray-700"
-          />
-          <div className="mt-4">
-            <h1 className={`text-2xl font-bold ${headingColor}`}>Manish Kumar</h1>
-            <p className="text-xl text-gray-500">manishhansal</p>
-            <p className={`mt-2 ${textColor}`}>
-              I am passionate about web development and solving problems.
-            </p>
-            <button
-              className={`w-full mt-4 py-2 px-4 rounded-md font-semibold ${
-                theme === 'dark'
-                  ? 'bg-gray-800 border border-gray-700 hover:bg-gray-700'
-                  : 'bg-gray-200 border border-gray-300 hover:bg-gray-300'
-              }`}
-            >
-              Edit profile
-            </button>
+    <ProfilePageLayout>
+      <div className={`p-6 rounded-lg border ${cardBg} ${cardBorder}`}>
+        <div className={`flex justify-between items-center mb-4 pb-4 border-b ${cardBorder}`}>
+          <p className={`${textColor}`}>manishhansal / README.md</p>
+          <button className={`${textColor} hover:text-white`}>
+            <Pencil size={18} />
+          </button>
+        </div>
+
+        <div className={`mt-4 ${headingColor}`}>
+          <div className="flex justify-between items-start">
+            <h1 className="text-3xl font-bold">Hi 👋, I&apos;m Manish Kumar</h1>
+            <div className="flex items-center space-x-2 bg-gray-800 border border-gray-700 rounded-md px-2 py-1 text-sm text-white">
+              <span>Profile views</span>
+              <span className="bg-blue-600 text-white px-2 rounded-full text-xs">701</span>
+            </div>
           </div>
-          <div className={`flex items-center space-x-4 mt-4 ${textColor}`}>
-            <Users size={16} />
-            <span>
-              <span className="font-bold text-white">14</span> followers
-            </span>
-            <span>·</span>
-            <span>
-              <span className="font-bold text-white">19</span> following
-            </span>
-          </div>
-          <div className={`mt-4 space-y-2 ${textColor}`}>
-            <div className="flex items-center">
-              <MapPin size={16} className="mr-2" />
-              <span>Motihari, East Champaran, Bihar, 845426</span>
+
+          <h2 className="text-xl text-blue-400 my-4">Software Developer</h2>
+
+          <p className={`mb-6 ${textColor}`}>
+            I&apos;m an experienced Software Developer passionate about building innovative and
+            efficient solutions that make a difference. With expertise in full-stack development, I
+            specialize in creating scalable and user-friendly web applications.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+            <div className="md:col-span-3">
+              <h3 className="text-xl font-semibold mb-2">My personal stuffs</h3>
+              <ul className={`space-y-2 ${textColor}`}>
+                <li>✅ I&apos;m currently exploring and learning Web Development;</li>
+                <li>⚡ I&apos;m looking to collaborate with other content creators;</li>
+                <li>
+                  😎 I&apos;m currently open for a new job opportunity, this is{' '}
+                  <a href="#" className="text-blue-400 hover:underline">
+                    MY RESUME
+                  </a>
+                </li>
+                <li>
+                  📫 How to reach me:{' '}
+                  <a
+                    href="mailto:manishhansalmeh@gmail.com"
+                    className="text-blue-400 hover:underline"
+                  >
+                    manishhansalmeh@gmail.com
+                  </a>
+                </li>
+              </ul>
+
+              <h3 className="text-xl font-semibold mt-8 mb-2">Connect with me:</h3>
+              <div className="flex space-x-4">
+                <a href="#" className={`${textColor} hover:text-blue-500`}>
+                  <Linkedin size={24} />
+                </a>
+                <a href="#" className={`${textColor} hover:text-blue-400`}>
+                  <Twitter size={24} />
+                </a>
+                <a href="#" className={`${textColor} hover:text-green-500`}>
+                  <WhatsAppIcon />
+                </a>
+              </div>
             </div>
-            <div className="flex items-center">
-              <Mail size={16} className="mr-2" />
-              <a href="mailto:manishhansalmeh@gmail.com" className="hover:underline">
-                manishhansalmeh@gmail.com
-              </a>
-            </div>
-            <div className="flex items-center">
-              <LinkIcon size={16} className="mr-2" />
-              <a
-                href="https://manishportfoli.netlify.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-              >
-                https://manishportfoli.netlify.app
-              </a>
-            </div>
-            <div className="flex items-center">
-              <Twitter size={16} className="mr-2" />
-              <a
-                href="https://x.com/ManishK62653031"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-              >
-                @ManishK62653031
-              </a>
+
+            <div className="md:col-span-2 flex items-center justify-center">
+              <Image
+                src="/developer-illustration.svg"
+                alt="Developer Illustration"
+                width={250}
+                height={250}
+              />
             </div>
           </div>
         </div>
       </div>
-
-      {/* Right Column */}
-      <div className="lg:col-span-2">
-        <div className={`p-6 rounded-lg border ${cardBg} ${cardBorder}`}>
-          <div className={`flex justify-between items-center mb-4 pb-4 border-b ${cardBorder}`}>
-            <p className={`${textColor}`}>manishhansal / README.md</p>
-            <button className={`${textColor} hover:text-white`}>
-              <Pencil size={18} />
-            </button>
-          </div>
-
-          <div className={`mt-4 ${headingColor}`}>
-            <div className="flex justify-between items-start">
-              <h1 className="text-3xl font-bold">Hi 👋, I&apos;m Manish Kumar</h1>
-              <div className="flex items-center space-x-2 bg-gray-800 border border-gray-700 rounded-md px-2 py-1 text-sm text-white">
-                <span>Profile views</span>
-                <span className="bg-blue-600 text-white px-2 rounded-full text-xs">701</span>
-              </div>
-            </div>
-
-            <h2 className="text-xl text-blue-400 my-4">Software Developer</h2>
-
-            <p className={`mb-6 ${textColor}`}>
-              I&apos;m an experienced Software Developer passionate about building innovative and
-              efficient solutions that make a difference. With expertise in full-stack development,
-              I specialize in creating scalable and user-friendly web applications.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-              <div className="md:col-span-3">
-                <h3 className="text-xl font-semibold mb-2">My personal stuffs</h3>
-                <ul className={`space-y-2 ${textColor}`}>
-                  <li>✅ I&apos;m currently exploring and learning Web Development;</li>
-                  <li>⚡ I&apos;m looking to collaborate with other content creators;</li>
-                  <li>
-                    😎 I&apos;m currently open for a new job opportunity, this is{' '}
-                    <a href="#" className="text-blue-400 hover:underline">
-                      MY RESUME
-                    </a>
-                  </li>
-                  <li>
-                    📫 How to reach me:{' '}
-                    <a
-                      href="mailto:manishhansalmeh@gmail.com"
-                      className="text-blue-400 hover:underline"
-                    >
-                      manishhansalmeh@gmail.com
-                    </a>
-                  </li>
-                </ul>
-
-                <h3 className="text-xl font-semibold mt-8 mb-2">Connect with me:</h3>
-                <div className="flex space-x-4">
-                  <a href="#" className={`${textColor} hover:text-blue-500`}>
-                    <Linkedin size={24} />
-                  </a>
-                  <a href="#" className={`${textColor} hover:text-blue-400`}>
-                    <Twitter size={24} />
-                  </a>
-                  <a href="#" className={`${textColor} hover:text-green-500`}>
-                    <WhatsAppIcon />
-                  </a>
-                </div>
-              </div>
-
-              <div className="md:col-span-2 flex items-center justify-center">
-                <Image
-                  src="/developer-illustration.svg"
-                  alt="Developer Illustration"
-                  width={250}
-                  height={250}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </ProfilePageLayout>
   );
 }

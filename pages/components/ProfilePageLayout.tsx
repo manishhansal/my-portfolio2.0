@@ -7,11 +7,13 @@ interface ProfilePageLayoutProps {
 
 const ProfilePageLayout = ({ children }: ProfilePageLayoutProps) => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-      <div className="lg:col-span-1">
-        <ProfileSidebar />
+    <div className="max-w-screen-xl mx-auto px-8 mt-8">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="lg:col-span-1">
+          <ProfileSidebar />
+        </div>
+        <div className="lg:col-span-3">{children}</div>
       </div>
-      <div className="lg:col-span-3">{children}</div>
     </div>
   );
 };

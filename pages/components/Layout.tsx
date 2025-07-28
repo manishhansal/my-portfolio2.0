@@ -26,7 +26,7 @@ const Layout = ({ children }: LayoutProps) => {
       </div>
       <div className="flex flex-1 overflow-hidden">
         <Sidebar open={leftSidebarOpen} setOpen={setLeftSidebarOpen} position="left" />
-        <main className={`flex-1 p-6 overflow-y-auto`}>{children}</main>
+        <main className={`flex-1 overflow-y-auto`}>{children}</main>
         <Sidebar open={rightSidebarOpen} setOpen={setRightSidebarOpen} position="right" />
       </div>
     </div>

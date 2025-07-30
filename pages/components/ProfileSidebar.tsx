@@ -6,8 +6,8 @@ import { MapPin, Mail, Link as LinkIcon, Twitter, Users } from 'lucide-react';
 
 const ProfileSidebar = () => {
   const { theme } = useTheme();
-  const textColor = theme === 'dark' ? 'text-gray-400' : 'text-gray-600';
-  const headingColor = theme === 'dark' ? 'text-white' : 'text-black';
+  const textColor = theme === 'dark' ? 'text-gray-300' : 'text-gray-600';
+  const headingColor = theme === 'dark' ? 'text-gray-100' : 'text-black';
 
   return (
     <div className="lg:col-span-1">
@@ -28,7 +28,7 @@ const ProfileSidebar = () => {
           <button
             className={`w-full mt-4 py-2 px-4 rounded-md font-semibold ${
               theme === 'dark'
-                ? 'bg-gray-800 border border-gray-700 hover:bg-gray-700'
+                ? 'bg-[#21262d] border border-gray-700 hover:bg-gray-700'
                 : 'bg-gray-200 border border-gray-300 hover:bg-gray-300'
             }`}
           >

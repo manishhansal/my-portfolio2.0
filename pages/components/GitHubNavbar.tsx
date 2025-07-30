@@ -2,6 +2,7 @@ import { Menu, Search, Plus, Bell, Users, LayoutList, GitMerge, Mail } from 'luc
 import { BTN_PRIMARY_STYLE, BTN_PRIMARY_TAILWIND, IMAGE_CONSTANTS } from '@/utils/constants';
 import ThemeToggleButton from './ThemeToggleButton';
 import { useTheme } from '@/context/ThemeContext';
+import Tooltip from './Tooltip';
 
 interface Props {
   leftOpen: boolean;
@@ -83,47 +84,63 @@ const GitHubNavbar = ({ leftOpen, setLeftOpen, rightOpen, setRightOpen }: Props)
             </div>
           </div>
 
-          <button className={BTN_PRIMARY_TAILWIND} style={BTN_PRIMARY_STYLE}>
-            <Users className="w-4 h-4" style={{ color: `var(--base-icon-black-themed-color)` }} />
-          </button>
+          <Tooltip text="View your organizations">
+            <button className={BTN_PRIMARY_TAILWIND} style={BTN_PRIMARY_STYLE}>
+              <Users className="w-4 h-4" style={{ color: `var(--base-icon-black-themed-color)` }} />
+            </button>
+          </Tooltip>
 
-          <button className={BTN_PRIMARY_TAILWIND} style={BTN_PRIMARY_STYLE}>
-            <Plus className="w-4 h-4" style={{ color: `var(--base-icon-black-themed-color)` }} />
-          </button>
+          <Tooltip text="Create new...">
+            <button className={BTN_PRIMARY_TAILWIND} style={BTN_PRIMARY_STYLE}>
+              <Plus className="w-4 h-4" style={{ color: `var(--base-icon-black-themed-color)` }} />
+            </button>
+          </Tooltip>
 
-          <button className={BTN_PRIMARY_TAILWIND} style={BTN_PRIMARY_STYLE}>
-            <Bell className="w-4 h-4" style={{ color: `var(--base-icon-black-themed-color)` }} />
-          </button>
+          <Tooltip text="Notifications">
+            <button className={BTN_PRIMARY_TAILWIND} style={BTN_PRIMARY_STYLE}>
+              <Bell className="w-4 h-4" style={{ color: `var(--base-icon-black-themed-color)` }} />
+            </button>
+          </Tooltip>
 
-          <button className={BTN_PRIMARY_TAILWIND} style={BTN_PRIMARY_STYLE}>
-            <LayoutList
-              className="w-4 h-4"
-              style={{ color: `var(--base-icon-black-themed-color)` }}
+          <Tooltip text="Issues">
+            <button className={BTN_PRIMARY_TAILWIND} style={BTN_PRIMARY_STYLE}>
+              <LayoutList
+                className="w-4 h-4"
+                style={{ color: `var(--base-icon-black-themed-color)` }}
+              />
+            </button>
+          </Tooltip>
+
+          <Tooltip text="Pull Requests">
+            <button className={BTN_PRIMARY_TAILWIND} style={BTN_PRIMARY_STYLE}>
+              <GitMerge
+                className="w-4 h-4"
+                style={{ color: `var(--base-icon-black-themed-color)` }}
+              />
+            </button>
+          </Tooltip>
+
+          <Tooltip text="Inbox">
+            <button className={BTN_PRIMARY_TAILWIND} style={BTN_PRIMARY_STYLE}>
+              <Mail className="w-4 h-4" style={{ color: `var(--base-icon-black-themed-color)` }} />
+            </button>
+          </Tooltip>
+
+          <Tooltip text="Toggle Theme">
+            <ThemeToggleButton />
+          </Tooltip>
+
+          <Tooltip text="View profile">
+            <img
+              src={IMAGE_CONSTANTS.profilePicture.src}
+              alt={IMAGE_CONSTANTS.profilePicture.alt}
+              className="w-8 h-8 rounded-full border-2 cursor-pointer"
+              style={{
+                borderColor: theme === 'dark' ? '#3b82f6' : '#2563eb',
+              }}
+              onClick={() => setRightOpen(!rightOpen)}
             />
-          </button>
-
-          <button className={BTN_PRIMARY_TAILWIND} style={BTN_PRIMARY_STYLE}>
-            <GitMerge
-              className="w-4 h-4"
-              style={{ color: `var(--base-icon-black-themed-color)` }}
-            />
-          </button>
-
-          <button className={BTN_PRIMARY_TAILWIND} style={BTN_PRIMARY_STYLE}>
-            <Mail className="w-4 h-4" style={{ color: `var(--base-icon-black-themed-color)` }} />
-          </button>
-
-          <ThemeToggleButton />
-
-          <img
-            src={IMAGE_CONSTANTS.profilePicture.src}
-            alt={IMAGE_CONSTANTS.profilePicture.alt}
-            className="w-8 h-8 rounded-full border-2 cursor-pointer"
-            style={{
-              borderColor: theme === 'dark' ? '#3b82f6' : '#2563eb',
-            }}
-            onClick={() => setRightOpen(!rightOpen)}
-          />
+          </Tooltip>
         </div>
       </div>
     </nav>

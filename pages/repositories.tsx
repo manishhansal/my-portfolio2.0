@@ -46,12 +46,14 @@ const repos = [
 
 const RepositoriesPage = () => {
   const { theme } = useTheme();
-  const textColor = theme === 'dark' ? 'text-gray-400' : 'text-gray-500';
-  const headingColor = theme === 'dark' ? 'text-white' : 'text-black';
+  const textColor = theme === 'dark' ? 'text-gray-300' : 'text-gray-500';
+  const headingColor = theme === 'dark' ? 'text-gray-100' : 'text-black';
   const borderColor = theme === 'dark' ? 'border-gray-700' : 'border-gray-300';
   const inputBg = theme === 'dark' ? 'bg-[#010409]' : 'bg-white';
   const buttonBg =
-    theme === 'dark' ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200';
+    theme === 'dark'
+      ? 'bg-[#21262d] hover:bg-gray-700'
+      : 'bg-gray-100 hover:bg-gray-200';
 
   return (
     <ProfilePageLayout>
@@ -64,19 +66,19 @@ const RepositoriesPage = () => {
           />
           <div className="flex items-center gap-2">
             <button
-              className={`px-4 py-1.5 border rounded-md flex items-center gap-1 ${buttonBg} ${borderColor} ${textColor}`}
+              className={`px-4 py-1.5 border rounded-md flex items-center gap-1 ${buttonBg} ${borderColor} ${headingColor}`}
             >
               <span>Type</span>
               <ChevronDown size={16} />
             </button>
             <button
-              className={`px-4 py-1.5 border rounded-md flex items-center gap-1 ${buttonBg} ${borderColor} ${textColor}`}
+              className={`px-4 py-1.5 border rounded-md flex items-center gap-1 ${buttonBg} ${borderColor} ${headingColor}`}
             >
               <span>Language</span>
               <ChevronDown size={16} />
             </button>
             <button
-              className={`px-4 py-1.5 border rounded-md flex items-center gap-1 ${buttonBg} ${borderColor} ${textColor}`}
+              className={`px-4 py-1.5 border rounded-md flex items-center gap-1 ${buttonBg} ${borderColor} ${headingColor}`}
             >
               <span>Sort</span>
               <ChevronDown size={16} />
@@ -131,7 +133,7 @@ const RepositoriesPage = () => {
               </div>
               <div>
                 <button
-                  className={`px-3 py-1.5 border rounded-md flex items-center gap-2 ${buttonBg} ${borderColor} ${textColor}`}
+                  className={`px-3 py-1.5 border rounded-md flex items-center gap-2 ${buttonBg} ${borderColor} ${headingColor}`}
                 >
                   <Star size={16} />
                   <span>Star</span>

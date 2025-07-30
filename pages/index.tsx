@@ -17,17 +17,19 @@ const WhatsAppIcon = () => (
 
 export default function OverviewPage() {
   const { theme } = useTheme();
-  const textColor = theme === 'dark' ? 'text-gray-400' : 'text-gray-600';
-  const headingColor = theme === 'dark' ? 'text-white' : 'text-black';
+  const textColor = theme === 'dark' ? 'text-gray-300' : 'text-gray-600';
+  const headingColor = theme === 'dark' ? 'text-gray-100' : 'text-black';
   const cardBg = theme === 'dark' ? 'bg-[#0d1117]' : 'bg-white';
-  const cardBorder = theme === 'dark' ? 'border-gray-800' : 'border-gray-200';
+  const cardBorder = theme === 'dark' ? 'border-white' : 'border-gray-200';
 
   return (
     <ProfilePageLayout>
       <div className={`p-6 rounded-lg border ${cardBg} ${cardBorder}`}>
-        <div className={`flex justify-between items-center mb-4 pb-4 border-b ${cardBorder}`}>
+        <div
+          className={`flex justify-between items-center mb-4 pb-4 border-b ${cardBorder}`}
+        >
           <p className={`${textColor}`}>manishhansal / README.md</p>
-          <button className={`${textColor} hover:text-white`}>
+          <button className={`${textColor} hover:text-gray-100`}>
             <Pencil size={18} />
           </button>
         </div>
@@ -35,9 +37,11 @@ export default function OverviewPage() {
         <div className={`mt-4 ${headingColor}`}>
           <div className="flex justify-between items-start">
             <h1 className="text-3xl font-bold">Hi 👋, I&apos;m Manish Kumar</h1>
-            <div className="flex items-center space-x-2 bg-gray-800 border border-gray-700 rounded-md px-2 py-1 text-sm text-white">
+            <div className="flex items-center space-x-2 bg-[#21262d] border border-gray-700 rounded-md px-2 py-1 text-sm text-gray-100">
               <span>Profile views</span>
-              <span className="bg-blue-600 text-white px-2 rounded-full text-xs">701</span>
+              <span className="bg-blue-600 text-white px-2 rounded-full text-xs">
+                701
+              </span>
             </div>
           </div>
 
